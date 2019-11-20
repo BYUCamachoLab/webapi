@@ -1,0 +1,4 @@
+django
+sqlparse==0.2.4
+djongo
+djangorestframework
