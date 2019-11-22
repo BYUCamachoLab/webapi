@@ -58,7 +58,7 @@ then
 		PORT=$2
 	fi
 	# Run the server on the specified port.
-	nohup python server/manage.py runserver $PORT > server.log 2>&1 &
+	nohup python server/manage.py runserver 0.0.0.0:$PORT > server.log 2>&1 &
 	echo $! > pid.txt
 	# echo $PWD/env/bin/python server/manage.py runserver $PORT
 fi
