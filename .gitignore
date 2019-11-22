@@ -106,3 +106,7 @@ venv.bak/
 
 # vscode
 .vscode/
+
+# Server temporary files
+pid.txt
+server.log
