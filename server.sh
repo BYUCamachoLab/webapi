@@ -35,9 +35,37 @@ then
 	python server/manage.py createsuperuser
 fi
 
-# First time builds
+# Run (but hang in terminal)
+if [ "$1" == "run" ]
+then
+	if [ -z "$2" ]
+	then
+		PORT=4000
+	else
+		PORT=$2
+	fi
+	# Run the server on the specified port.
+	python server/manage.py runserver $PORT
+fi
+
+# Run (with the nohup signal)
 if [ "$1" == "start" ]
 then
-	# Run migrations on all the apps to build them into the database
-	python server/manage.py runserver
+	if [ -z "$2" ]
+	then
+		PORT=4000
+	else
+		PORT=$2
+	fi
+	# Run the server on the specified port.
+	nohup python server/manage.py runserver $PORT > server.log 2>&1 &
+	echo $! > pid.txt
+	# echo $PWD/env/bin/python server/manage.py runserver $PORT
+fi
+
+# Stop (using the pid)
+if [ "$1" == "stop" ]
+then
+	# LINE=`ps ax | grep manage.py | awk '{print $1}'`
+	kill `cat pid.txt`
 fi
