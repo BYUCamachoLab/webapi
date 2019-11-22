@@ -24,9 +24,23 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = secrets.SECRET_KEY
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    "camacholab.ee.byu.edu",
+    "localhost",
+    "127.0.0.1"
+]
+
+CSRF_COOKIE_SECURE = True
+
+SESSION_COOKIE_SECURE = False
+
+SECURE_SSL_REDIRECT = False
+
+SECURE_BROWSER_XSS_FILTER = True
+
+SECURE_CONTENT_TYPE_NOSNIFF = True
 
 
 # Application definition
@@ -121,3 +135,14 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+# Deployment Settings
+
+X_FRAME_OPTIONS = 'DENY'
+
+REST_FRAMEWORK = {
+    'DEFAULT_RENDERER_CLASSES': (
+        'rest_framework.renderers.JSONRenderer',
+    )
+}
