@@ -94,6 +94,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'djongo',
         'NAME': 'api-db',
+        'USER': secrets.MONGODB_USER,
+        'PASSWORD': secrets.MONGODB_PASS,
     }
 }
 
