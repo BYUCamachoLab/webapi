@@ -10,4 +10,3 @@ class Machine(models.Model):
 
     class Meta:
         ordering = ['ee_tag']
-

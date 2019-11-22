@@ -6,7 +6,7 @@ import datetime
 # class MachineSerializer(serializers.HyperlinkedModelSerializer):
 #     class Meta:
 #         model = Machine
-#         fields = ['id', 'ee_tag', 'alias', 'ip', 'description']
+#         fields = ['id', 'ee_tag', 'alias', 'ip', 'description', 'updated']
 
 class MachineSerializer(serializers.Serializer):
     id = serializers.IntegerField(read_only=True)
